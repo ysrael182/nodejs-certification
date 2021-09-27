@@ -1,7 +1,7 @@
 process.on('multipleResolves', (type, promise, reason) => {
     // Displaying the error
     console.log("Type: ", type);
-    console.log("Promsie: ", promise);
+    console.log("Promise: ", promise);
     console.log("Reason: ", reason);
     //setImmediate(() => process.exit(1));
 });
