@@ -30,11 +30,5 @@ myEventEmitter.prependListener('start', () => {
 });
 
 myEventEmitter.emit('start');
-//console.log(myEventEmitter.listeners('start'));
 
-//console.log(myEventEmitter.listenerCount('start'));
-
-//console.log(myEventEmitter.getMaxListeners());
-
-//console.log(myEventEmitter.eventNames());
 

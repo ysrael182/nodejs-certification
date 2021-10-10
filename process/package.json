@@ -19,5 +19,6 @@
   },
   "dependencies": {
     "pretty-console-colors": "^1.1.1"
-  }
+  },
+  "type": "module"
 }
