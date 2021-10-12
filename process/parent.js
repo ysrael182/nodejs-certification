@@ -7,3 +7,7 @@ forked.on('message', (msg) => {
 });
 
 forked.send({ hello: 'world' });
+
+process.on('error', (error)=> {
+    console.log(`error:`+error);
+});
