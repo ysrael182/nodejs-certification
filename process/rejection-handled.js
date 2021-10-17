@@ -3,4 +3,13 @@ process.on('unhandledRejection', error => {
     console.log('unhandledRejection', error.test);
 });
 
-//new Promise((_, reject) => reject({ test: 'woops!' })).catch(() => {});
+process.on('rejectionHandled', (promise) => {
+    console.log("rejection handled"+error);
+});
+
+const promise = new Promise((_, reject) => reject({ test: 'woops!' }));
+promise.then(() => {
+    console.log();
+}).catch(
+    (reason) => { console.log("here")}
+    );

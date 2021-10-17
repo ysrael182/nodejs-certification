@@ -6,8 +6,13 @@ process.on('multipleResolves', (type, promise, reason) => {
     //setImmediate(() => process.exit(1));
 });
 process.on('rejectionHandled', (promise) => {
-    unhandledRejections.delete(promise);
+    //unhandledRejections.delete(promise);
 });
+
+process.on('error', (error) => {
+    console.log("error"+ error);
+});
+
 async function main() {
     try {
         return await new Promise((resolve, reject) => {
@@ -22,4 +27,6 @@ async function main() {
 
 main().then((res)=> {
     //console.log(res);
+}).catch(() => {
+
 });
