@@ -5,7 +5,7 @@ process.stdin.resume();
 }*/
 process.on('SIGINT', () => {
     console.log(`Received signal of close`);
-    process.abort()
+    process.abort();
 });
 
 process.on('SIGWINCH', () => {
