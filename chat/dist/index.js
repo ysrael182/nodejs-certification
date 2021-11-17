@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const router_1 = __importDefault(require("./router"));
+const socket_1 = __importDefault(require("./socket"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 app.set("views", path_1.default.join(process.cwd(), "views"));
@@ -14,11 +15,9 @@ app.use("/", router_1.default);
 const server = (0, express_1.default)()
     .use(app)
     .listen(PORT, () => { console.log(`Server started at port ${PORT}`); });
-const io = require('socket.io')(server);
-io.on('connection', function (socket) {
-    console.log('a user connected');
-    socket.on('chatter', function (message) {
-        console.log('message : ' + message);
-        io.emit('chatter', message);
+new socket_1.default(server);
+process.on('SIGTERM', () => {
+    server.close(() => {
+        console.log('Process terminated');
     });
 });

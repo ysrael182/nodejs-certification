@@ -1,7 +1,7 @@
 import express from "express";
 import path  from "path";
 import routes from "./router";
-
+import SocketIO from "./socket";
 
 const app = express();
 const PORT = 3000;
@@ -17,14 +17,9 @@ const server = express()
     .use(app)
     .listen(PORT, () => { console.log(`Server started at port ${PORT}`);  });
 
+new SocketIO(server);
 
 
-const io = require('socket.io')(server);
-
-io.on('connection', function(socket: any) {
-    console.log('a user connected');
-    socket.on('chatter', function(message: string) {
-        console.log('message : ' + message);
-        io.emit('chatter', message);
-    });
+process.on('SIGTERM', () => {
+    process.exit();
 });

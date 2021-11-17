@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "lib": ["es6"],
+    "types": ["reflect-metadata"],
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "exclude":[
     "./node_modules"

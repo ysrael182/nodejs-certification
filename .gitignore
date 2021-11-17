@@ -1,3 +1,5 @@
-process/.node_modules
-nodejs-certification/.node_modules
+process/node_modules
+nodejs-certification/node_modules
 module_system/.node_modules
+chat/node_modules
+chat-nest/node_modules
